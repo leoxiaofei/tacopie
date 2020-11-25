@@ -83,6 +83,7 @@ tcp_client::connect(const std::string& host, std::uint32_t port, std::uint32_t t
   }
   catch (const tacopie_error& e) {
     m_socket.close();
+	m_io_service->push_task(std::bind(&tcp_client::call_disconnection_handler, this));
     throw e;
   }
 

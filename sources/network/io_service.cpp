@@ -346,4 +346,9 @@ io_service::wait_for_removal(const tcp_socket& socket) {
   });
 }
 
+void io_service::push_task(const task_t& task)
+{
+	m_callback_workers << task;
+}
+
 } // namespace tacopie

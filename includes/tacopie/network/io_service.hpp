@@ -130,6 +130,15 @@ public:
   //!
   void wait_for_removal(const tcp_socket& socket);
 
+  //!
+  //! performing asynchronous task
+  //!
+  //! \param task
+  //!
+  typedef std::function<void()> task_t;
+
+  void push_task(const task_t& task);
+
 private:
   //!
   //! struct tracked_socket
